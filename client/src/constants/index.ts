@@ -1,16 +1,16 @@
 import { Filters, User, UsersData } from '@/interfaces'
 
 export const FORM_INITAL_STATE: User = {
-  id: undefined,
+  id: '',
   usuario: '',
-  estado: undefined,
+  estado: '',
   sector: 6000
 }
 
 export const FILTERS_INITIAL_STATE: Filters = {
   sector: 6000,
   page: 1,
-  name: undefined,
+  name: '',
   status: undefined
 }
 

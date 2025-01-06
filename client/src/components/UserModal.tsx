@@ -60,7 +60,7 @@ export const UserModal = ({ visible, handleHide, activeUser, callback }: UserMod
         <div className="flex m-1">
           <InputText
             className="flex-grow-1 p-2"
-            keyfilter="alpha"
+            keyfilter={/^[A-Za-z\s]*$/}
             placeholder={"Ingrese el nombre del Usuario"}
             name="usuario"
             value={form.usuario}

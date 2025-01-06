@@ -38,7 +38,7 @@ export const UserPage = () => {
           className="flex-grow-1 p-2 m-1"
           size="large"
           placeholder={"Buscar"}
-          keyfilter="alpha"
+          keyfilter={/^[A-Za-z\s]*$/}
           name="name"
           onBlur={handleInputBlur}
         />

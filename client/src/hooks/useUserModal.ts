@@ -24,6 +24,7 @@ export const useUserModal = (activeUser: User | null, callback: () => void) => {
     } else {
       await createUser(form)
     }
+    setForm(FORM_INITAL_STATE)
     callback()
   }
 
@@ -34,7 +35,7 @@ export const useUserModal = (activeUser: User | null, callback: () => void) => {
     callback()
   }
 
-  const isFormValid = !!form.usuario && !!form.estado && !!form.sector
+  const isFormValid = !!form.usuario && !!form.usuario.trim() && !!form.estado && !!form.sector
 
   return {
     form,

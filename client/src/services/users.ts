@@ -33,7 +33,7 @@ export const getUsersFiltered = async ({ name, page = 1, status }: Filters) => {
     sector: 6000,
     '_limit': 10,
     '_page': page,
-    'usuario_like': name,
+    'usuario_like': name?.trim(),
   }
 
   if (status) { params.estado = status }
@@ -55,12 +55,14 @@ export const modifyUser = async (user: User) => {
 
 export const createUser = async (user: User) => {
   try {
-    if (!user.sector || !user.estado || !user.usuario) throw new Error('Faltan datos obligatorios')
+    if (!user.sector || !user.estado || !user.usuario || !user.usuario.trim()) {
+      throw new Error('Faltan datos obligatorios')
+    }
 
     await axios.post('/personal', ({
       sector: user.sector,
       estado: user.estado,
-      usuario: user.usuario
+      usuario: user.usuario.trim().toUpperCase()
     }))
       .then(res => console.log('Creado con éxito:', res.data))
   } catch (error) {
